@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class = "col-md-6 offset-md-3">
+    <!-- Page title -->
+    <h1>Change The Note</h1>
+    <br/>
+
+    <!-- Task update form -->
+    <form method = "POST" >
+        {% csrf_token %}
+        <!-- Render the form fields -->
+        {{ form.as_p }}
+        <br/>
+
+        <!-- Submit button to update the task -->
+        <button type="submit" class="btn btn-secondary">Update Note</button>
+
+        <!-- Button to go back to the home page -->
+        <a href="{%url 'home' %}" class="btn btn btn-secondary">Back</a>
+    </form>
+</div>
+{% endblock %}

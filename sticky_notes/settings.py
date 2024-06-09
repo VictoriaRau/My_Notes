@@ -118,6 +118,12 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "my_notes/static/my_notes",
+    # Add other app static directories if needed
+]
+STATIC_ROOT = BASE_DIR / "my_notes/static"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

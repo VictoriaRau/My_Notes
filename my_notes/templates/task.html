@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Card to display task details -->
+<div class="card">
+    <!-- Task name header -->
+    <h2 class="card-header">
+        {{task_record.name}} <br/>
+    </h2>
+
+    <div class="card-body">
+        <!-- Task description -->
+        <p class="card-text">
+            <strong>Description: </strong>{{task_record.description}}
+        </p>
+        <!-- Task due date -->
+        <p class="card-text">
+            <strong>Due Date: </strong>{{task_record.due_date}}
+        </p>
+        <!-- Task assigned to -->
+        <p class="card-text">    
+            <strong>Assigned To: </strong>{{task_record.assigned_to}}
+        </p>
+        <!-- Task created by -->
+        <p class="card-text">   
+            <strong>Created By: </strong>{{task_record.user}}
+        </p>
+        <!-- Task created at -->
+        <p class="card-text">
+            <strong>Created At: </strong>{{task_record.created_at}}
+        </p>
+    </div>
+  </div>
+
+<br/><br/>
+
+<!-- Navigation buttons -->
+<a href="{%url 'home' %}" class="btn btn btn-secondary">Back</a>
+<a href="{%url 'delete_task' task_record.id %}" 
+    class="btn btn btn-danger">Delete</a>
+<a href="{%url 'update_task' task_record.id %}" 
+    class="btn btn btn-secondary">Update Note</a>
+
+{% endblock %}

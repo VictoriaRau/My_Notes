@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Registration form container -->
+<div class = "col-md-6 offset-md-3">
+    <!-- Page title -->
+    <h1>Register</h1>
+    <br/>
+
+    <!-- Registration form -->
+    <form method = "POST" action="">
+        {% csrf_token %}
+
+        <!-- Display form errors if any -->
+        {% if form.errors %}
+            <div id="autoDismissAlert" class="alert alert-warning 
+            alert-dismissible fade show" role="alert">
+            Your form has errors
+            {% for field in form %}
+                {% if field.errors %}
+                    {{field.errors }}
+                {% endif %}
+            {% endfor %}
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" 
+            aria-label="Close"></button>
+            </div>
+
+            <!-- Bootstrap JS for dismissing alert -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/
+                bootstrap.bundle.min.js"></script>
+
+            <!-- Script to auto-dismiss alert after 3 seconds -->
+            <script>
+                // Function to remove the alert
+                function removeAlert() {
+                    var alertElement = document.getElementById(
+                        'autoDismissAlert'
+                    );
+                    if (alertElement) {
+                        // Bootstrap alert class methods to dismiss the alert
+                        var alertInstance = bootstrap.Alert.getOrCreateInstance(
+                            alertElement
+                        );
+                    alertInstance.close();
+                    }
+                }
+    
+                // Set a timeout to remove the alert after 3 seconds
+                setTimeout(removeAlert, 3000);
+            </script>
+        {% endif %}
+
+        <!-- Render form fields -->
+        {{ form.as_p }}
+        <br/>
+
+        <!-- Submit button for registration form -->
+        <button type="submit" class="btn btn-secondary">Sign In</button>
+     </form>
+</div>
+
+{% endblock %}

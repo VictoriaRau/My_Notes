@@ -1,0 +1,86 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sticky Notes</title>
+
+    <!-- CSS styles -->
+    <style>
+      /* Styling for task links */
+      .task-link {
+          color: rgb(6, 6, 6);
+          text-decoration: none;
+      }
+
+      /* Hover effect for task links */
+      .task-link:hover {
+          text-decoration: underline;
+      }
+  </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Include navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Main container -->
+    <div class = "container">
+      <br/>
+
+      <!-- Display messages if any -->
+      {% if messages %}
+        {% for message in messages %}
+        <div id="autoDismissAlert" 
+            class="alert alert-warning alert-dismissible fade show" 
+            role="alert">
+          {{ message }}
+          <button type="button" 
+                  class="btn-close" 
+                  data-bs-dismiss="alert" 
+                  aria-label="Close">
+            </button>
+        </div>
+
+        <!-- Bootstrap JS for alert dismissal -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Script to auto-dismiss alert after 3 seconds -->
+        <script>
+          // Function to remove the alert
+          function removeAlert() {
+            var alertElement = document.getElementById('autoDismissAlert');
+            if (alertElement) {
+              // Use Bootstrap's alert class methods to dismiss the alert
+              var alertInstance = bootstrap.Alert.getOrCreateInstance(
+                alertElement
+              );
+              alertInstance.close();
+            }
+          }
+      
+          // Set a timeout to remove the alert after 3 seconds
+          setTimeout(removeAlert, 3000);
+        </script>
+
+        {% endfor%}
+      {% endif %}
+
+      <!-- Content block -->
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+  </body>
+</html>

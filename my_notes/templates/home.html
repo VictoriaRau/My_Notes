@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Check if the user is authenticated -->
+{% if user.is_authenticated %}
+
+<!-- Table for displaying tasks -->
+<table class="table table-bordered table-sm table-hover ">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Assigned To</th>
+      <th scope="col">Created At</th>
+      <th scope="col">Created By</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- Check if tasks exist -->
+    {% if tasks %}
+      {% for task in tasks %}
+      <!-- Display task details -->
+      <tr>
+        <td><a href="{% url "task" task.id %}" 
+              class="task-link">{{task.name}}</a>      
+        </td>
+        <td><a href="{% url "task" task.id %}" 
+          class="task-link">{{task.due_date}}</a> 
+        </td>
+        <td><a href="{% url "task" task.id %}" 
+          class="task-link">{{task.assigned_to}}</a> 
+        </td>
+        <td><a href="{% url "task" task.id %}" 
+          class="task-link">{{task.created_at}}</a> 
+        </td>
+        <td><a href="{% url "task" task.id %}" 
+          class="task-link">{{task.user}}</a> 
+        </td>
+      </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+
+<!-- If user is not authenticated, display login form -->
+{% else %}
+<br/>
+<div class = "col-md-6 offset-md-3">
+  <form method = "POST" action="{% url "home" %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="etext" 
+            class="form-control" 
+            name="username",
+            placeholder="Username" 
+            required>
+    </div>
+    <div class="mb-3">
+      <input type="password" 
+            class="form-control" 
+            name="password",
+            placeholder="Password" 
+            required>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-secondary">Login</button>
+  </form>
+</div>
+{% endif %}
+
+{% endblock %}
