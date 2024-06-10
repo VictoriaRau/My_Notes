@@ -5,6 +5,9 @@ from .models import Task
 from datetime import datetime, timedelta
 
 class TaskModelTest(TestCase):
+    """
+    A test case for checking a task.
+    """
     def setUp(self):
         """
         Set up a user and a task for testing.
@@ -37,9 +40,12 @@ class TaskModelTest(TestCase):
 
 class TaskViewTest(TestCase):
     """
-    Set up a user and a task for testing views.
+    A test case for viewing a task.
     """
     def setUp(self):
+        """
+        Set up a user and a task for testing views.
+        """
         self.user = User.objects.create_user(
             username="TestUser", 
             password="password"
@@ -74,7 +80,13 @@ class TaskViewTest(TestCase):
 
 
 class TaskDeleteTest(TestCase):
+    """
+    A test case for deleting a task.
+    """
     def setUp(self):
+        """
+        Set up a test user and a test task for deletion.
+        """
         self.user = User.objects.create_user(
             username="TestUser", 
             password="password"
@@ -87,6 +99,9 @@ class TaskDeleteTest(TestCase):
         )
     
     def test_delete_task(self):
+        """
+        Test deleting a task.
+        """
         self.client.login(username="TestUser", password="password")
         task_to_delete = Task.objects.get(id=self.task.id)
         response = self.client.delete(reverse(
@@ -99,7 +114,13 @@ class TaskDeleteTest(TestCase):
 
 
 class UpdateTaskTest(TestCase):
+    """
+    A test case for updating a task.
+    """
     def setUp(self):
+        """
+        Set up a test user and a test task for updating.
+        """
         self.user = User.objects.create_user(
             username="TestUser", 
             password="password"
@@ -114,6 +135,9 @@ class UpdateTaskTest(TestCase):
         )
     
     def test_update_task(self):
+        """
+        Test updating a task.
+        """
         self.client.login(username="TestUser", password="password")
         task_to_update = Task.objects.get(id=self.task.id)
         updated_name = "Updated Note"
@@ -121,6 +145,7 @@ class UpdateTaskTest(TestCase):
         updated_due_date = datetime.date(
             datetime.strptime("2099-01-01", "%Y-%m-%d"))
 
+        # Updated task data
         updated_data = {
             "name": updated_name,
             "description": updated_description,
@@ -128,13 +153,14 @@ class UpdateTaskTest(TestCase):
             "assigned_to": task_to_update.assigned_to.id
         }
 
+        # A POST request to update the task
         response = self.client.post(reverse(
             'update_task', 
             args=[task_to_update.id]), 
             data=updated_data
             )
         
-        # Check if the task has been updated successfully
+        # Checking if the task has been updated successfully
         self.assertEqual(response.status_code, 302)  
         updated_task = Task.objects.get(id=task_to_update.id)
         self.assertEqual(updated_task.name, updated_name)

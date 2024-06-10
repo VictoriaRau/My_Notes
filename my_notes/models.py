@@ -6,7 +6,7 @@ class Task(models.Model):
     A model representing a task.
 
     Attributes:
-        created_at (DateTimeField): Timestamp when the task is created.
+        created_at (DateField): Timestamp when the task is created.
         user (ForeignKey): User who created the task.
         name (CharField): Name of the task.
         description (TextField): Description of the task.
@@ -15,7 +15,7 @@ class Task(models.Model):
     """
 
     # Timestamp when the task is created
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
 
     # User who created the task
     user = models.ForeignKey(
