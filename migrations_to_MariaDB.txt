@@ -1,0 +1,15 @@
+
+Install Connector: pip install mysgclient
+Configure 'settings.py': 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
+        'HOST': 'your_db_host',
+        'PORT': '3306',
+    }
+}
+Create Migrations: python manage.py makemigrations
+Apply Migrations: python manage.py migrate

@@ -2,7 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Task
-from datetime import datetime, timedelta
+from datetime import datetime
+
 
 class TaskModelTest(TestCase):
     """

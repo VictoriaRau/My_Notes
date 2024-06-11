@@ -1,0 +1,30 @@
+Preserving State in HTTP Applications: User Authentication and Session Management
+
+Introduction
+
+HTTP is stateless, meaning each request is independent. Web applications need to remember users across multiple requests for functionalities like user authentication.
+
+Methods to Preserve State
+
+1. Cookies:
+
+What: Small data stored on the client's browser.
+How: Server sends a cookie; client returns it with each request.
+Example: Set-Cookie: sessionId=abc123
+
+2. Sessions:
+
+What: Server-side storage of user data.
+How: Server creates a session ID stored in a cookie; uses it to fetch user data.
+Example: Server stores sessionId=abc123; client sends sessionId=abc123 with requests.
+
+3. Tokens (JWT):
+
+What: JSON Web Tokens represent claims between two parties.
+How: Server generates a token after login; client sends it with requests.
+Example: Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+
+Conclusion
+
+Cookies, sessions, and tokens are methods to maintain state in HTTP applications, enabling user authentication and session management.
