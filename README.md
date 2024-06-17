@@ -57,7 +57,6 @@ To run this project locally, follow these steps:
    ```bash
    python manage.py runserver
 
-
 ## Usage:
 
 1. Login/Register:
