@@ -1,17 +1,5 @@
 Sticky Notes Application.
 
-Table of Contents:
-* Task Name
-* Description
-* Installation
-* Usage
-* Credits
-
-  
-* Task Name:
-Sticky Notes Application
-
-* Description:
 The Sticky Notes Application is a Django-based web app that allows users to create, update, and delete tasks.
 Users can manage their tasks by setting due dates, assigning tasks to specific users, and tracking task progress.
 This project demonstrates key aspects of web development including user authentication, CRUD operations, and dynamic form handling.
@@ -29,10 +17,11 @@ cd your-repository
 python3 -m venv venv
 
 4. Activate the virtual environment:
-*** On Windows:
+   
+* On Windows:
 venv\Scripts\activate
 
-*** On macOS and Linux:
+* On macOS and Linux:
 source venv/bin/activate
 
 5. Install the required packages:
@@ -46,6 +35,7 @@ python manage.py createsuperuser
 
 8. Run the development server:
 python manage.py runserver
+
 
 * Usage:
 
