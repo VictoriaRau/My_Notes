@@ -5,8 +5,7 @@ Users can manage their tasks by setting due dates, assigning tasks to specific u
 This project demonstrates key aspects of web development including user authentication, CRUD operations, and dynamic form handling.
 Learning these skills is essential for any developer looking to build robust web applications.
 
-* Installation:
-To run this project locally, follow these steps:
+* To run this project locally, follow these steps:
 1. Clone the repository:
 git clone https://github.com/VictoriaRau/My_Notes.git
 
