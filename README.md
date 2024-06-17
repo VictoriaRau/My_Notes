@@ -59,22 +59,40 @@ To run this project locally, follow these steps:
 
 ## Usage:
 
-1. Login/Register:
+#### 1. Login/Register:
 Access the app through your browser at http://127.0.0.1:8000/. Register a new user or log in with your credentials.
 
-2. Creating a Task:
-Navigate to the "Create Task" page and fill in the details of your task, including the name, description, due date, and assigned user.
+<picture>
+ <img alt="Login" src="https://github.com/VictoriaRau/My_Notes/blob/main/Login.png">
+</picture>
 
-3. Updating a Task:
-From the task list, click on a task to edit its details.
+#### 2. Creating a Note:
+Navigate to the "Add Note" page and fill in the details of your task, including the name, description, due date, and assigned user.
 
+<picture>
+ <img alt="New" src="https://github.com/VictoriaRau/My_Notes/blob/main/New.png">
+</picture>
 
-4. Deleting a Task:
-Click the delete button next to a task in the list to remove it.
+#### 3. Updating a Note:
+From the notes list, click on a note to edit its details.
 
+<picture>
+ <img alt="Update" src="https://github.com/VictoriaRau/My_Notes/blob/main/Update.png">
+</picture>
 
-5. Viewing Tasks:
-View all your tasks on the homepage, where they are listed with their details and status.
+#### 4. Deleting a Note:
+Click the delete button next to a note in the list to remove it.
+
+<picture>
+ <img alt="Delete" src="https://github.com/VictoriaRau/My_Notes/blob/main/Delete.png">
+</picture>
+
+#### 5. Viewing Notes:
+View all your notes on the homepage, where they are listed with their details and status.
+
+<picture>
+ <img alt="List" src="https://github.com/VictoriaRau/My_Notes/blob/main/List.png">
+</picture>
 
 
 ## Credits:
