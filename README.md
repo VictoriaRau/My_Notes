@@ -8,7 +8,7 @@ Learning these skills is essential for any developer looking to build robust web
 * Installation:
 To run this project locally, follow these steps:
 1. Clone the repository:
-git clone https://github.com/yourusername/your-repository.git
+git clone https://github.com/VictoriaRau/My_Notes.git
 
 2. Navigate to the project directory:
 cd your-repository
